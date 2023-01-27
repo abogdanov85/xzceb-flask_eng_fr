@@ -20,14 +20,22 @@ language_translator.set_service_url('https://api.eu-de.language-translator.watso
 #print('test')
 
 def englishToFrench(englishText):
-    frenchText = language_translator.translate(text=englishText,
-    model_id='en-fr').get_result()
-    return frenchText['translations'][0]['translation']
+    if englishText == '':
+        return 'Error: The input text is empty'
+    else:
+        frenchText = language_translator.translate(text=englishText,
+        model_id='en-fr').get_result()
+        return frenchText['translations'][0]['translation']
 
 def frenchToEnglish(frenchText):
-    englishText = language_translator.translate(text=frenchText,
-    model_id='fr-en').get_result()
-    return englishText['translations'][0]['translation']
+    if frenchText == '':
+        return 'Error: The input text is empty'
+    else:
+        englishText = language_translator.translate(text=frenchText,
+        model_id='fr-en').get_result()
+        return englishText['translations'][0]['translation']
 
 #print(englishToFrench('I go home'))
+#print(englishToFrench(''))
 #print(frenchToEnglish('Je vais à la maison'))
+#print(frenchToEnglish(''))
